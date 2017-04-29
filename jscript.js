@@ -4,6 +4,8 @@ $(document).ready(function(){
 	var breyta;
 	var breyta2;
 	var pontun;
+	$('#pontunListi').append("<table><tr><th>Ávextir</th><th>Magn</th></tr></table>");
+	pontun2 = "<table><tr><th>Ávextir</th><th>Magn</th></tr></table>";
 	$('select[name=magn]').change(function() {
 		breyta2 = $(this).val();
 	});
@@ -23,10 +25,11 @@ $(document).ready(function(){
 			breyta = null;
 		}
 		else {
+pontun = "<table><tr><th>Ávextir</th><th>Magn</th></tr></table>";
 			fylki.unshift(breyta , breyta2);
-			pontun = "<ul>";
+			pontun += "<ul>";
 	   		for (i = 0; i < fylki.length; i+=2) {
-		   	 	pontun += "<li class=" + i + ">" + fylki[i] + " -- " + fylki[i+1] + "<input type='button' class='eydaPontun' value='Eyða'/>" + "</li>";
+		   	 	pontun += "<li class=" + i + ">"+"<div class='jqpontun all flotleft' >" + fylki[i] +"</div>" + "<div class='jqpontun alr'>"+ fylki[i+1] +"</div>"+ "<div class='clear'></div>"+"<input type='button' class='eydaPontun' value='Eyða'/>" + "</li>";
 			}
 			pontun += "</ul>";
 			document.getElementById("pontunListi").innerHTML = pontun;

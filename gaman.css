@@ -1,18 +1,16 @@
-p {
-    font-size: 3em;
-}
-li  {
-    width: auto;
+
+#pontunListi li  {
+    width: 200px;
     height: 25px;
     margin: 10px;
     padding: 5px;
     border: 3px solid #73AD21;  
     display: table;
 }
-input[type:"button"] {
+/*input[type:"button"] {
 	display: table-row;
 	
-}
+}*/
 ul li input {
 	margin-left: 50px;
 }

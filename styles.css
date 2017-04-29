@@ -1,9 +1,13 @@
 @charset "UTF-8";
+p {
+  font-size: 18px;
+}
 body {
   width: auto;
   margin-top: 1em;
   padding: .75em;
-  background: green; }
+  background: green;
+  font-family: 'Old Standard TT', serif; }
 
 h1 {
   text-align: center; }
@@ -34,16 +38,15 @@ header ul {
   top: 2.455em;
   right: 0.3em;
   z-index: 100;
-  border-radius: .5em; }
+  border-radius: .5em; 
+ list-style: none;
+  background-color: #007;
+  padding: 0;
+  max-width: 24em;}
 
 header input:checked ~ ul {
   max-height: 25em; }
 
-header ul {
-  list-style: none;
-  background-color: #007;
-  padding: 0;
-  max-width: 24em; }
 
 header li {
   border-bottom: 1px solid black;
@@ -68,7 +71,8 @@ img {
   width: 45px; }
 
 aside li {
-  list-style: none; }
+  list-style: none; 
+display: grid;}
 
 aside ul {
   padding: 0;
@@ -83,10 +87,76 @@ aside a {
 
 .flotleft {
   float: left; }
-
+.flotright {
+  float: right;
+}
 .clear {
   clear: both; }
+/*-------pöntunarsíða---------------*/
+#pontunListi {
+  text-align: right;
+      border: 1px black solid;
 
+}
+.pontun {
+  width: 40%;
+}
+#pontunListi li  {
+   width: 200px;
+   /*height: 25px;*/
+    /*margin: 10px;*/
+    padding: 5px;
+    border: 3px solid #73AD21;  
+    /*display: table;*/
+}
+#pontunListi ul {
+  list-style-type: none;
+      padding: 0;
+    margin: 0;
+}
+.jqpontun {
+  font-size: 1.5em;
+}
+button {
+  display: table-row;
+      /* width: 100%; */
+    background-color: #007;
+    color: #fff;
+    /* padding: 10px; */
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  
+}
+.all {
+  text-align: left;
+  }
+  .alr {
+    text-align: right;
+  }
+ select {border: 1px solid #ccc;
+   font-size: 16px;
+   height: 30px;
+   width: 150px;}
+   th {
+    padding: 5px;
+    font-size: 1.5em;
+        padding-left: 20px;
+   }
+}
+input[type=button] {
+      display: table-row;
+    /* width: 100%; */
+    background-color: rgb(0, 0, 119);
+    color: #fff;
+    /* padding: 10px; */
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+/*-----------------------------*/
 footer a {
   text-decoration: none;
   color: #080DA3; }
@@ -98,5 +168,49 @@ footer a:focus {
   color: #551a8b; }
 
 /*-----------------------------*/
+@media screen and (min-width: 30em) {
+img {
+  width: 70px;
+}
+img + a {
+  font-size: 1.5em;
+  margin-left: -5px;
+  text-align: center;
+}
+aside ul {
+  max-width: 100000px;
+  margin:0;
+  padding: 0;
+}
+aside li {
+  display: grid;
+width: 300px;}
+}
+@media screen and (min-width: 48em) {
+  html {
+    background-color: white;
+  }
+  body  {
+    margin: 0 auto;
+    width: 960px;
+  }
+  header label {
+    display: none;
+  }
+  header ul {
+    max-height: 100%;
+    max-width:100%;
+    display: flex;
+    position: static;
+        font-size: 20px;
 
+  }
+  header ul li {
+    width: 20%;
+  }
+  img {
+    width: 50%;
+    margin-left: 70px;
+  }
+}
 /*# sourceMappingURL=styles.css.map */
