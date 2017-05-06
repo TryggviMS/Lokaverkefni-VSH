@@ -1,0 +1,285 @@
+@charset "UTF-8";
+$rammi : solid black 1px;
+p {
+  font-size: 18px;
+}
+body {
+  width: auto;
+  margin-top: 1em;
+  padding: .75em;
+  background: green;
+  font-family: 'Old Standard TT', serif; 
+  
+}
+
+h1 {
+  text-align: center; }
+
+/*------------mobile menu-*/
+
+header {
+  input {
+    display: none; 
+  }
+  label {
+    top: 0.25em;
+    right: 0.25em;
+    position: fixed;
+    border: $rammi;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-size: 24px;
+    padding: 0.225em 0.4em;
+    transition: all .15s ease;
+    background: #007;
+    z-index: 100; 
+  }
+  ul {
+    max-height: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 2.455em;
+    right: 0.3em;
+    z-index: 100;
+    border-radius: .5em; 
+    list-style: none;
+    background-color: #007;
+    padding: 0;
+    max-width: 24em;
+  }
+  input:checked ~ ul {
+    max-height: 25em; 
+  }
+  li {
+    border: $rammi;
+    width: 7.5em;
+    height: 2.75em; 
+  }
+  li:last-child {
+    border-bottom: none; 
+  }
+  ul:last-child {
+    border-radius: 0.5em; 
+  }
+  a {
+    color: white;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding-top: .75em; 
+  }
+}
+/*------------st├¡lar fyrir main s├¡├░u------------------*/
+img {
+  width: 45px; }
+aside {
+  li {
+    list-style: none; 
+    display: grid;
+  }
+  ul {
+    padding: 0;
+    width: 50%;
+    max-width: 200px; 
+  }
+  a {
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    color: blue; 
+  }
+}
+.flotleft {
+  float: left; }
+.flotright {
+  float: right;
+}
+.clear {
+  clear: both; }
+/*-------pöntunarsíða mobile---------------*/
+/*-----selectorar----------*/
+.pontunSelect {
+      margin: auto;
+    width: 75%;
+
+}
+ select {
+   border: $rammi;
+   font-size: 16px;
+   height: 30px;
+   width: 200px;
+   margin-bottom: 5px;
+ }
+ /*---------------listi yfir pantaða hluti--------*/
+#pontunListi {
+  padding-left: 30px;
+   padding-bottom: 20px;
+  text-align: right;
+  li  {
+      padding: 5px; 
+       border-bottom: $rammi;
+  }
+  ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+  }
+  li:first-child {
+    border-top: $rammi;
+}
+}
+.jqpontunV {
+  font-size: 1.5em;
+  text-align: left;
+  float: left;
+}
+.jqpontunH {
+  font-size: 1.5em;
+  text-align: right;
+}
+input[type=button] {
+      display: table-row;
+    /* width: 100%; */
+    background-color: #f10000;
+    color: #fff;
+    /* padding: 10px; */
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+/*-----------pöntunarform-----------*/
+.skraningarform {
+
+  border-radius:10px;
+  border:$rammi;
+  padding:10px 40px 25px;
+  background-color: white;
+}
+
+button {
+  display: table-row;
+     width: 80px;
+    background-color: #007;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  
+}
+th {
+    padding: 5px;
+    font-size: 1.5em;
+     
+}
+th:first-child {
+    padding-right: 55px;
+}
+input[type=text], input[type=password] {
+  padding:10px;
+  margin-top:8px;
+  border:$rammi;
+  padding-left:5px;
+  font-size:16px;
+}
+input[type=password] {
+  margin-bottom: 5px;
+}
+/*-----------------------------*/
+footer {
+  a {
+  text-decoration: none;
+  color: #080DA3; }
+  a:hover {
+  text-decoration: underline; }
+  a:focus {
+  color: #551a8b; }
+}
+/*-----------------------------*/
+@media screen and (min-width: 30em) {
+img {
+  width: 70px;
+}
+img + a {
+  font-size: 1.5em;
+  margin-left: -5px;
+  text-align: center;
+}
+aside {
+  ul {
+  max-width: 100000px;
+  margin:0;
+  padding: 0;
+}
+}
+}
+@media screen and (min-width: 48em) {
+  html {
+    background-color: white;
+  }
+  body  {
+    margin: 0 auto;
+    width: 800px;
+  }
+  header {
+    label {
+    display: none;
+  }
+  ul {
+    max-height: 100%;
+    max-width:100%;
+    display: flex;
+    position: static;
+        font-size: 20px;
+
+  }
+  ul li {
+    width: 20%;
+  }
+  }
+  img {
+    width: 50%;
+    margin-left: 70px;
+  }
+/*-------pöntunarsíða desktop---------------*/
+/*-----selectorar----------*/
+  .pontunSelect {
+  width: 27%;
+  float: left;
+  display: grid;
+}
+ /*---------------listi yfir pantaða hluti--------*/
+
+
+#pontunListi {
+ width: 27%;
+
+  float: left;
+  border: $rammi;
+  padding: 0;
+  margin: 0px 15px;
+ 
+  li:last-child {
+      border-bottom: none;
+  }
+}
+/*-----------pöntunarform-----------*/
+.skraningarform {
+  width:28%;
+float:right;
+border-radius:10px;
+padding:10px 40px 25px;
+background-color: white;
+}
+input[type=text], input[type=password] {
+width:99.5%;
+}
+
+/*-----------------------------*/
+.fyrirsogn {
+  width: 40%;
+}
+}
+/*# sourceMappingURL=styles.css.map */

@@ -5,7 +5,7 @@
 	
 	<meta charset="utf-8">
 	<title>Pantanir</title>
-	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
   <link rel="shortcut icon" href="favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -17,7 +17,7 @@
       <input type="checkbox" id="toggle" >
       <label class="felaLabel" for="toggle">Menu &#9776; </label>
         <ul>
-            <li><a href="http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Skilaverkefni%204/vefur/adalsida.php">Forsíða</a></li>
+            <li><a href="http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Lokaverkefni/adalsida.html">Forsíða</a></li>
              <li><a href="http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Skilaverkefni%204/vefur/leikur.php">Panta ávexti</a></li>
                 <li><a href="http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Skilaverkefni%204/vefur/sida1.php">Kex.is</a></li>
                 <li><a href="http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Skilaverkefni%204/vefur/sida2.php">Kaffi.is</a></li>
@@ -37,6 +37,11 @@
   <option value="Epli">Epli</option>
   <option value="Appelsína">Appelsína</option>
   <option value="Banani">Banani</option>
+  <option value="Perur">Perur</option>
+  <option value="Mangó">Mangó</option>
+  <option value="Lárpera">Lárpera</option>
+  <option value="Jarðarber">Jarðarber</option>
+  <option value="Bláber">Bláber</option>
 </select>
 
 <select name="magn" id="magn">
@@ -55,9 +60,10 @@
 <div id="pontunListi">
   <table><tr><th>Ávextir</th><th>Magn</th></tr></table>
 </div>
+<button id="hnappur3">prufa</button>
 <div >
  
-  <form action="" method="POST" class="skraningarform" id="skraPontun">
+  <form action="./includes/vinnsla.php" method="POST" class="skraningarform" id="skraPontun">
    <h2>Leggja inn pöntun</h2>
     <label>Nafn:</label>
       <input id="name" name="nafn" placeholder="Notandanafn" type="text" >
@@ -69,12 +75,13 @@
       <input type="hidden" id="pontunUpplysingar" name="upplysingar">
   </form>
 </div>
+
 <div class="clear"></div>
 <footer>
 <div class="flotleft" id="pontunarform">
   <h4>Tenglar</h4>
           <ul>                
-             <li><a href="http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Skilaverkefni%204/vefur/adalsida.php">Forsíða</a></li>
+             <li><a href="http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Lokaverkefni/adalsida.html">Forsíða</a></li>
              <li><a href="http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Skilaverkefni%204/vefur/leikur.php">Panta ávexti</a></li>
                 <li><a href="http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Skilaverkefni%204/vefur/sida1.php">Kex.is</a></li>
                 <li><a href="http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Skilaverkefni%204/vefur/sida2.php">Kaffi.is</a></li>
