@@ -1,3 +1,4 @@
+<?php include('./includes/vinnsla.php') ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +24,7 @@
                 <li><a href="http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Skilaverkefni%204/vefur/sida3.php">Ís.is</a></li>
             </ul> 
   </header>
+
 <div class="fyrirsogn"> 
   <h1>Pöntunarsíða</h1>
   <p>Hérna er hægt að panta ávexti.</p> <p>Veldu ávöxt og magn í kílóum</p><p>Þegar þú ert búin/n að velja, skráðu inn upplýsingar í skráningarform og pantaðu!</p> 
@@ -39,13 +41,13 @@
 
 <select name="magn" id="magn">
   <option value="ekkert2">Magn--</option>
-  <option value="1 kg">1 kg</option>
-  <option value="2 kg">2 kg</option>
-  <option value="3 kg">3 kg</option>
-  <option value="5 kg">5 kg</option>
-  <option value="10 kg">10 kg</option>
-  <option value="15 kg">15 kg</option>
-  <option value="20 kg">20 kg</option>
+  <option value="1">1 kg</option>
+  <option value="2">2 kg</option>
+  <option value="3">3 kg</option>
+  <option value="5">5 kg</option>
+  <option value="10">10 kg</option>
+  <option value="15">15 kg</option>
+  <option value="20">20 kg</option>
 </select>
 <button id="hnappur1">Velja</button>
 </div>
@@ -53,21 +55,23 @@
 <div id="pontunListi">
   <table><tr><th>Ávextir</th><th>Magn</th></tr></table>
 </div>
-<div class="skraningarform">
-  <h2>Leggja inn pöntun</h2>
-  <form action="" method="post">
+<div >
+ 
+  <form action="" method="POST" class="skraningarform" id="skraPontun">
+   <h2>Leggja inn pöntun</h2>
     <label>Nafn:</label>
-      <input id="name" name="username" placeholder="Notandanafn" type="text">
+      <input id="name" name="nafn" placeholder="Notandanafn" type="text" >
     <label>Sími</label>
-      <input id="password" name="password" placeholder="******" type="Password">
+      <input id="text" name="simi" placeholder="xxx-xxxxx" type="Password" >
     <label>Heimilisfang</label>
-      <input id="password" name="password" placeholder="******" type="Password">
-      <button name="submit">Panta</button>
+      <input id="text" name="heimilisfang" placeholder="Heimilisfang" type="Password" >
+      <button type="Submit" id="hnappur2" name="panta">Panta</button>
+      <input type="hidden" id="pontunUpplysingar" name="upplysingar">
   </form>
 </div>
 <div class="clear"></div>
 <footer>
-<div class="flotleft">
+<div class="flotleft" id="pontunarform">
   <h4>Tenglar</h4>
           <ul>                
              <li><a href="http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Skilaverkefni%204/vefur/adalsida.php">Forsíða</a></li>
@@ -87,9 +91,9 @@
                 <li><a href="http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Skilaverkefni%204/vefur/sida3.php">Ís.is</a></li>
           </ul>
  </div>
- <button id="hnappur2">prufakeyra</button>
  <p id="prufa"></p>
 </footer>
 <div class="clear"></div>
+
 </body>
 </html>

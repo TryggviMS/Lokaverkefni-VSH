@@ -92,69 +92,76 @@ aside a {
 }
 .clear {
   clear: both; }
-/*-------pöntunarsíða---------------*/
+/*-------pöntunarsíða mobile---------------*/
 #pontunListi {
-  text-align: right;
-      border: 1px black solid;
-      width: 210px;
+    padding-left: 30px;
+    padding-bottom: 20px;
+    text-align: right;
 
 }
-.pontun {
-  width: 385px;
+.pontunSelect {
+      margin: auto;
+    width: 75%;
+
 }
 #pontunListi li  {
    width: 200px;
-   /*height: 25px;*/
-    /*margin: 10px;*/
     padding: 5px; 
     border-bottom: 1px black solid;
-    /*display: table;*/
 }
 #pontunListi ul {
-  list-style-type: none;
-      padding: 0;
+    list-style-type: none;
+    padding: 0;
     margin: 0;
 }
  #pontunListi li:first-child {
-  border-top: 1px black solid;
+    border-top: 1px black solid;
 }
- #pontunListi li:last-child {
-  border-bottom: none;
+.skraningarform {
+
+  border-radius:10px;
+  border:2px solid #ccc;
+  padding:10px 40px 25px;
+  background-color: white;
 }
  /*header ul:last-child {
   border-radius: 0.5em;
 }*/
-.jqpontun {
+.jqpontunV {
   font-size: 1.5em;
+  text-align: left;
+  float: left;
+}
+.jqpontunH {
+  font-size: 1.5em;
+  text-align: right;
 }
 button {
   display: table-row;
-      /* width: 100%; */
+     width: 80px;
     background-color: #007;
     color: #fff;
-    /* padding: 10px; */
     font-size: 20px;
     cursor: pointer;
     border-radius: 5px;
-    margin-top: 10px;
   
 }
-.all {
-  text-align: left;
-  }
-  .alr {
-    text-align: right;
-  }
- select {border: 1px solid #ccc;
+ select {
+   border: 1px solid #ccc;
    font-size: 16px;
    height: 30px;
-   width: 150px;}
-   th {
+   width: 200px;
+   margin-bottom: 5px;
+ }
+th {
     padding: 5px;
     font-size: 1.5em;
-        padding-left: 20px;
-   }
+     
 }
+th:first-child {
+    padding-right: 55px;
+}
+
 input[type=button] {
       display: table-row;
     /* width: 100%; */
@@ -166,23 +173,16 @@ input[type=button] {
     border-radius: 5px;
     margin-top: 10px;
 }
-.login {
-width:28%;
-float:left;
-border-radius:10px;
-border:2px solid #ccc;
-padding:10px 40px 25px;
-background-color: white;
-height: 350px;
-margin-left: 10px;
-}
+
 input[type=text], input[type=password] {
-width:99.5%;
-padding:10px;
-margin-top:8px;
-border:1px solid #ccc;
-padding-left:5px;
-font-size:16px;
+  padding:10px;
+  margin-top:8px;
+  border:1px solid #ccc;
+  padding-left:5px;
+  font-size:16px;
+}
+input[type=password] {
+  margin-bottom: 5px;
 }
 /*-----------------------------*/
 footer a {
@@ -220,7 +220,7 @@ width: 300px;}
   }
   body  {
     margin: 0 auto;
-    width: 960px;
+    width: 800px;
   }
   header label {
     display: none;
@@ -240,5 +240,51 @@ width: 300px;}
     width: 50%;
     margin-left: 70px;
   }
+  /*--------------------pöntunarsíða deskt-----*/
+  .pontunSelect {
+  width: 27%;
+  float: left;
+  display: grid;
+}
+#pontunListi {
+ 
+  float: left;
+  text-align: right;
+  border: 1px black solid;
+  width: 21.8%;
+  padding: 0;
+  margin: 0px 15px;
+}
+#pontunListi {
+   width: 27%;
+
+}
+ #pontunListi li {
+    width: auto;
+    border-bottom: 1px black solid;
+}
+ #pontunListi li:last-child {
+    border-bottom: none;
+}
+.skraningarform {
+  width:28%;
+float:right;
+border-radius:10px;
+border:2px solid #ccc;
+padding:10px 40px 25px;
+background-color: white;
+}
+input[type=text], input[type=password] {
+width:99.5%;
+padding:10px;
+margin-top:8px;
+border:1px solid #ccc;
+padding-left:5px;
+font-size:16px;
+}
+.fyrirsogn {
+  width: 40%;
+}
+/*-----------------------------*/
 }
 /*# sourceMappingURL=styles.css.map */

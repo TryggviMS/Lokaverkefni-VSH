@@ -1,11 +1,12 @@
 $(document).ready(function(){
-	
+		
+
 	var fylki = [];
 	var breyta;
 	var breyta2;
 	var pontun;
-	$('#pontunListi').append("<table><tr><th>Ávextir</th><th>Magn</th></tr></table>");
-	pontun2 = "<table><tr><th>Ávextir</th><th>Magn</th></tr></table>";
+	/*$('#pontunListi').append("<table><tr><th>Ávextir</th><th>Magn</th></tr></table>");
+	pontun2 = "<table><tr><th>Ávextir</th><th>Magn</th></tr></table>";*/
 	$('select[name=magn]').change(function() {
 		breyta2 = $(this).val();
 	});
@@ -29,7 +30,7 @@ pontun = "<table><tr><th>Ávextir</th><th>Magn</th></tr></table>";
 			fylki.unshift(breyta , breyta2);
 			pontun += "<ul>";
 	   		for (i = 0; i < fylki.length; i+=2) {
-		   	 	pontun += "<li class=" + i + ">"+"<div class='jqpontun all flotleft' >" + fylki[i] +"</div>" + "<div class='jqpontun alr'>"+ fylki[i+1] +"</div>"+ "<div class='clear'></div>"+"<input type='button' class='eydaPontun' value='Eyða'/>" + "</li>";
+		   	 	pontun += "<li class=" + i + ">"+"<div class='jqpontunV' >" + fylki[i] +"</div>" + "<div class='jqpontunH'>"+ fylki[i+1] +" kg</div>"+ "<div class='clear'></div>"+"<input type='button' class='eydaPontun' value='Eyða'/>" + "</li>";
 			}
 			pontun += "</ul>";
 			document.getElementById("pontunListi").innerHTML = pontun;
@@ -40,10 +41,18 @@ pontun = "<table><tr><th>Ávextir</th><th>Magn</th></tr></table>";
 				var mynumber = parseInt(myClass);
   				fylki.splice(mynumber, 2);
 			});
+			console.log(fylki);
 		}
 	});
 	$('#hnappur2').click(function(){
 		console.log(fylki);
+		var form = document.getElementById('skraPontun');
+    	form.addEventListener('submit', function(){
+    	var markersField = document.getElementById('pontunUpplysingar');
+    	markersField.value = JSON.stringify(fylki);
+    });
+	
 
-	});
+    });
+    
 });
