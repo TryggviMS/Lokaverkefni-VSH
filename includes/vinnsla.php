@@ -52,12 +52,6 @@ if (isset($_POST['panta'])) {
     echo "<p>Villa í skráningu: " . $sql . "<br>" . mysqli_error($conn) . "</p>";
     echo "<p><a href='http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Lokaverkefni/pantanir.php'>Til baka</a></p>";
   }
-
-
-
-
-
-
   //hérna er loopað í gegnum array með pöntuninni og sett í gagnagrunn
   foreach ($multiarr as $var) {
       //hérna er bætt við dagsetningu á pöntun, tíminn fer þá eftir hve pöntunin er stór.
@@ -83,9 +77,6 @@ if (isset($_POST['panta'])) {
       echo "<p><a href='http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Lokaverkefni/pantanir.php'>Til baka</a></p>";
     }
     }
-     $nafn = $_POST['nafn'];
-  $simi = $_POST['simi'];
-  $heimilisfang = $_POST['heimilisfang'];
     //ef það tókst að skrá í gagnagrunnin er birtur listi yfir því sem var pantað og takki til að fara til baka.
   if ($satt == true) {
     $newDate = date("d-m-Y", strtotime($sendingardagur));

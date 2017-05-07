@@ -75,11 +75,11 @@
   <form action="./includes/vinnsla.php" method="POST" class="skraningarform" id="skraPontun">
    <h2>Leggja inn pöntun</h2>
     <label>Nafn:</label>
-      <input id="name" name="nafn" placeholder="Notandanafn" type="text" required>
+      <input name="nafn" placeholder="Notandanafn" type="text" required>
     <label>Sími</label>
-      <input id="text" name="simi" placeholder="xxx-xxxxx" type="Password" required>
+      <input name="simi" placeholder="xxx-xxxxx" type="text" required>
     <label>Heimilisfang</label>
-      <input id="text" name="heimilisfang" placeholder="Heimilisfang" type="Password" required>
+      <inputname="heimilisfang" placeholder="Heimilisfang" type="text" required>
     <button type="Submit" id="hnappur2" name="panta">Panta</button>
       <input type="hidden" id="pontunUpplysingar" name="upplysingar">
   </form>
