@@ -79,7 +79,7 @@
     <label>Sími</label>
       <input name="simi" placeholder="xxx-xxxxx" type="text" required>
     <label>Heimilisfang</label>
-      <inputname="heimilisfang" placeholder="Heimilisfang" type="text" required>
+      <input name="heimilisfang" placeholder="Heimilisfang" type="text" required>
     <button type="Submit" id="hnappur2" name="panta">Panta</button>
       <input type="hidden" id="pontunUpplysingar" name="upplysingar">
   </form>
