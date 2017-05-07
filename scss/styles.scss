@@ -72,8 +72,7 @@ header {
   }
 }
 /*------------st├¡lar fyrir main s├¡├░u------------------*/
-img {
-  width: 45px; }
+
 aside {
   li {
     list-style: none; 
@@ -89,8 +88,15 @@ aside {
     font-size: 1em;
     font-weight: bold;
     color: blue; 
+    margin: auto;
   }
-}
+  img {
+     padding:1px;
+   border:1px solid #021a40;
+   background-color:#ff0;
+  width: 50%;  
+  margin: auto;}
+  }
 .flotleft {
   float: left; }
 .flotright {
@@ -114,9 +120,10 @@ aside {
  }
  /*---------------listi yfir pantaða hluti--------*/
 #pontunListi {
-  padding-left: 30px;
-   padding-bottom: 20px;
-  text-align: right;
+    margin: auto;
+    padding-bottom: 20px;
+    text-align: right;
+    width: 56%;
   li  {
       padding: 5px; 
        border-bottom: $rammi;
@@ -155,12 +162,12 @@ input[type=button] {
 
   border-radius:10px;
   border:$rammi;
-  padding:10px 40px 25px;
+  padding:0px 70px 25px;
   background-color: white;
 }
 
 button {
-  display: table-row;
+ display: table-row;
      width: 80px;
     background-color: #007;
     color: #fff;
@@ -169,6 +176,7 @@ button {
     border-radius: 5px;
   
 }
+
 th {
     padding: 5px;
     font-size: 1.5em;
@@ -202,17 +210,21 @@ footer {
 img {
   width: 70px;
 }
-img + a {
-  font-size: 1.5em;
-  margin-left: -5px;
-  text-align: center;
-}
+
 aside {
   ul {
   max-width: 100000px;
   margin:0;
   padding: 0;
-}
+  }
+  a {
+    font-size: 1.5em;
+    margin: 10px auto;
+  }
+  img {
+    width: 40%;
+    margin:10px auto;
+  }
 }
 }
 @media screen and (min-width: 48em) {
@@ -222,6 +234,11 @@ aside {
   body  {
     margin: 0 auto;
     width: 800px;
+  }
+  aside {
+    img {
+      width: 50%;
+    }
   }
   header {
     label {
@@ -238,11 +255,23 @@ aside {
   ul li {
     width: 20%;
   }
+  a {
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+a:hover, a:focus, a:active {
+  -webkit-transform: scale(1.4);
+  transform: scale(1.4);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
   }
-  img {
-    width: 50%;
-    margin-left: 70px;
-  }
+ 
+  
 /*-------pöntunarsíða desktop---------------*/
 /*-----selectorar----------*/
   .pontunSelect {
@@ -281,5 +310,25 @@ width:99.5%;
 .fyrirsogn {
   width: 40%;
 }
+
+/*-------------animation bara desktop-------*/
+button {
+   
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+button:hover, button:focus, button:active {
+  -webkit-transform: scale(0.8);
+  transform: scale(0.8);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+ /* Bounce In */
+
 }
 /*# sourceMappingURL=styles.css.map */

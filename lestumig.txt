@@ -1,0 +1,11 @@
+Þema þessarar síðu er að selja ávexti. Á aðasíðunni eru nokkrar línur með upplýsingum um ávexti. Það er listi af öllum
+ávöxtunum sem eru í boði ásamt link á wikipedia fyrir hvern ávöxt. Það er líka pöntunarsíða þar sem hægt er að velja ávexti og magn
+og leggja inn pöntun. Báðar síðurnar eru með responsive hönnun, fyrir undir 30em, 30-48em og yfir 48 em. 
+Ég notaði SASS sparlega, en var samt með breytu og notaði mikið nested tags sem SASS leyfir manni að gera. Ég hafði nokkur einföld transform
+fyrir hnappa og fyrir menu-ið, en aðeins fyrir desktop. 
+Ég notaði mikið jqeury fyrir pöntunarsíðuna. Ég smíðaði alveg frá grunni leið til að búa til lista yfir þá hluti sem eru valdir í dropdown menu-inu
+og það eru einnig hægt að deleta hlut úr listanum, án þess að rugla röðinni. Það sem maður vill panta fer í array í jquery, og þegar maður pantar er því
+array breytt yfir í php array.Php hliðin er frekar einföld, pöntunin er sett í gagnagrunn, með viðbættri heimsendingardagsetningu og pöntunarnúmer. Upplýsingar
+sem notandi skráir í form eru líka settar í gagnagrunn, ásamt pöntunarnúmeri fyrir pöntunina. Ég er ekki með neina virkni til að skoða innihald gagnagrunnins.
+Ég gerði enga dagbók eða verkáætlun, en ég var duglegur að setja í git þannig að það ætti að virka sem dagbók.
+

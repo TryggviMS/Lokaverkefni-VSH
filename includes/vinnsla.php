@@ -11,11 +11,10 @@ if (!$conn)
 }
 $multiarr = array();
 $pontun = array();
+$sendingardagur=Date('Y-m-d');
+$satt = false;
 if (isset($_POST['panta'])) {
-  //innihald formsins sett í berytur
-  $nafn = $_POST['nafn'];
-  $simi = $_POST['simi'];
-  $heimilisfang = $_POST['heimilisfang'];
+  
   //hérna er kóði sem lætur pöntunarnúmer alltaf vera einum hærra en pöntunin á undar, þannig að hver pöntun hafi sitt númer. það er sótt það númer sem er hæst í gagnagrunninum og bætt við það einum.
   $pontunarnumer = 1000;
   $sql2 = "SELECT DISTINCT MAX(pontunarnumer) from pontunskraning ORDER BY pontunarnumer";
@@ -30,19 +29,7 @@ if (isset($_POST['panta'])) {
     $naestaPontunarnumer = 1000;
   }
   }
-  //hérna er bætt við dagsetningu á pöntun, tíminn fer þá eftir hve pöntunin er stór.
-  if (count($pontun) == 1) {
-    $sendingardagur=Date('Y-m-d', strtotime("+1 days"));
-  }
-  elseif (count($pontun) >= 2 && count($pontun) <=4) {
-    $sendingardagur=Date('Y-m-d', strtotime("+2 days"));
-  }
-  elseif (count($pontun) >= 5 && count($pontun) <=10) {
-    $sendingardagur=Date('Y-m-d', strtotime("+3 days"));
-  }
-  else {
-    $sendingardagur=Date('Y-m-d', strtotime("+5 days"));
-  }
+ 
   //hérna er jquery array breytt yfir í php array
   $pontun = json_decode($_POST['upplysingar']);
   $teljari = 0;
@@ -51,62 +38,75 @@ if (isset($_POST['panta'])) {
       $multiarr[$i]["magn"] = $pontun[$teljari+1];
       $teljari+=2;
   }
-  /*echo "<pre>";
-  print_r($multiarr);
-  echo "</pre>";
-  
-  for ($i=0; $i < count($multiarr); $i++) { 
+
+  //innihald skráningarformsins sett í breytur, nafn, sími, heimilisfang og númer pöntunar sett í gagnagrunn
+  $nafn = $_POST['nafn'];
+  $simi = $_POST['simi'];
+  $heimilisfang = $_POST['heimilisfang'];
+  $sql2 ="INSERT INTO pontun (nafn, simi, heimilisfang, pontunarnumer)
+  VALUES ('$nafn', '$simi', '$heimilisfang','$naestaPontunarnumer')";
+  if (mysqli_query($conn, $sql2)) {
     
-     echo  $multiarr[$i]['avoxtur'];
-     echo $multiarr[$i]['magn'];
-    
-    echo "<br>";
-    
-  }*/
-  /*echo  $multiarr[0]['avoxtur'];
-  echo  $multiarr[0]['magn'];*/
-  $satt = false;
-     foreach ($multiarr as $var) {
-        $avoxtur = $var['avoxtur'];
-        $magn = $var['magn'];
-        //echo "\n", $var['avoxtur'], "\t\t", $var['magn'];
-       // echo $avoxtur + " " + $magn + "<br>";
+  } 
+  else {
+    echo "<p>Villa í skráningu: " . $sql . "<br>" . mysqli_error($conn) . "</p>";
+    echo "<p><a href='http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Lokaverkefni/pantanir.php'>Til baka</a></p>";
+  }
+
+
+
+
+
+
+  //hérna er loopað í gegnum array með pöntuninni og sett í gagnagrunn
+  foreach ($multiarr as $var) {
+      //hérna er bætt við dagsetningu á pöntun, tíminn fer þá eftir hve pöntunin er stór.
+    if (count($multiarr) == 1) {
+        $sendingardagur=Date('Y-m-d', strtotime("+1 days"));
+      }
+     if (count($multiarr) >= 2 && count($multiarr) <=4) {
+        $sendingardagur=Date('Y-m-d', strtotime("+2 days"));
+      }
+     if (count($multiarr) >= 5) {
+        $sendingardagur=Date('Y-m-d', strtotime("+3 days"));
+      }
+      //hérna er sett inn í gagnagrunn
+    $avoxtur = $var['avoxtur'];
+    $magn = $var['magn'];
     $sql = "INSERT INTO pontunskraning (pontunarnumer, avoxtur, magn,heimsendingdagsetning)
     VALUES ('$naestaPontunarnumer', '$avoxtur', '$magn','$sendingardagur')";
     if (mysqli_query($conn, $sql)) {
       $satt = True;
-      /*foreach ($multiarr as $var) {
-        echo "\n", $var['avoxtur'], "\t\t", $var['magn'];
-      }
-          */
-      ;
-      } else {
-        echo "<p>Villa í skráningu: " . $sql . "<br>" . mysqli_error($conn) . "</p>";
-        echo "<p><a href='http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Lokaverkefni/pantanir.php'>Til baka</a></p>";
+    } 
+    else {
+      echo "<p>Villa í skráningu: " . $sql . "<br>" . mysqli_error($conn) . "</p>";
+      echo "<p><a href='http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Lokaverkefni/pantanir.php'>Til baka</a></p>";
     }
-      }
-      if ($satt == true) {
-      	$newDate = date("d-m-Y", strtotime($sendingardagur));
-      	echo "<p><b>Pöntun móttekin</b></p><p><b>Sendingardagur: $newDate</b></p>";
-      echo	'<table>
-		<tr>
-		<th>Ávöxtur</th>
-		<th>Magn</th>
-		</tr>';
+    }
+     $nafn = $_POST['nafn'];
+  $simi = $_POST['simi'];
+  $heimilisfang = $_POST['heimilisfang'];
+    //ef það tókst að skrá í gagnagrunnin er birtur listi yfir því sem var pantað og takki til að fara til baka.
+  if ($satt == true) {
+    $newDate = date("d-m-Y", strtotime($sendingardagur));
+    echo "<h3>Pöntun móttekin<h3><p><b>Sendingardagur: </b>$newDate</p>";
+    echo "<p><b>Nafn: </b>$nafn</p><b>Sími: </b>$simi<p><b>Heimilisfang: </b>$heimilisfang</p><p><b>Pöntunarnúmer: </b>$pontunarnumer</p>";
+    echo	
+      '<table>
+  		<tr>
+  		<th>Ávöxtur</th>
+  		<th>Magn</th>
+  		</tr>';
 		for ($i=0; $i < count($multiarr); $i++) { 
-	   	 echo
-			    '<tr>
-			    <td>' . $multiarr[$i]['avoxtur'] . "&nbsp;" . '</td>
+	   	echo
+			  '<tr>
+			  <td>' . $multiarr[$i]['avoxtur'] . "&nbsp;" . '</td>
 				<td>' . $multiarr[$i]['magn'] . " kg". '</td>
 				</tr>';
 		}
-	
-	echo '</table>';
-	echo "<br><p><b><a href='http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Lokaverkefni/adalsida.html'>Til baka</a></b></p>";
-      	
-      }
+  	echo '</table>';
+  	echo "<br><p><b><a href='http://tsuts.tskoli.is/2t/1309932819/VSH%20303/Lokaverkefni/adalsida.html'>Til baka</a></b></p>";
+    }
     mysqli_close($conn);
 }
-
-
- ?>
+?>
