@@ -16,7 +16,6 @@ $satt = false;
 if (isset($_POST['panta'])) {
   
   //hérna er kóði sem lætur pöntunarnúmer alltaf vera einum hærra en pöntunin á undar, þannig að hver pöntun hafi sitt númer. það er sótt það númer sem er hæst í gagnagrunninum og bætt við það einum.
-  $pontunarnumer = 1000;
   $sql2 = "SELECT DISTINCT MAX(pontunarnumer) from pontunskraning ORDER BY pontunarnumer";
   $result = mysqli_query($conn, $sql2);
   $row = mysqli_fetch_array($result);
@@ -81,7 +80,7 @@ if (isset($_POST['panta'])) {
   if ($satt == true) {
     $newDate = date("d-m-Y", strtotime($sendingardagur));
     echo "<h3>Pöntun móttekin<h3><p><b>Sendingardagur: </b>$newDate</p>";
-    echo "<p><b>Nafn: </b>$nafn</p><b>Sími: </b>$simi<p><b>Heimilisfang: </b>$heimilisfang</p><p><b>Pöntunarnúmer: </b>$pontunarnumer</p>";
+    echo "<p><b>Nafn: </b>$nafn</p><b>Sími: </b>$simi<p><b>Heimilisfang: </b>$heimilisfang</p><p><b>Pöntunarnúmer: </b>$naestaPontunarnumer</p>";
     echo	
       '<table>
   		<tr>
